@@ -3,6 +3,8 @@
 ### TODO:
 - [x] for-loop-count
 - [ ] if then else
+- [ ] while
+- [ ] foreach
 - [ ] assert
 - [ ] defclass-construct
 - [ ] defmessage-handler-construct
