@@ -12,6 +12,7 @@
 (multifield_variable) @variable
 (str_lit) @string
 (comment) @comment
+(boolean_symbol) @boolean
 
 (deffunction_construct
   name: (_) @function)
@@ -56,12 +57,15 @@
 
 (function_call
   name: (_) @keyword.operator
-  (#match? @keyword.operator "^and|or|not$"))
+  (#any-of? @keyword.operator "and" "or" "not"))
+
+(function_call
+  name: (_) @operator
+  (#any-of? @operator "-" "/" "+" "*" "~" "<" "=" "<=" ">" ">="))
 
 (function_call
   name: (_) @keyword
-  (#match? @keyword "^while|foreach|bind$"))
-
+  (#any-of? @keyword "while" "foreach" "bind"))
 
 (parameter_list
   (single_field_variable) @variable.parameter
@@ -79,6 +83,9 @@
   (multifield_variable) @variable.parameter)
 
 (allowed_type) @type.builtin
+
+((symbol) @constant.builtin
+  (#any-of? @constant.builtin "t" "crlf"))
 
 (ERROR) @error
 
@@ -104,6 +111,7 @@
   "object"
   "is-a"
   "name"
+  "loop-for-count"
 ] @keyword
 
 [
