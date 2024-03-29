@@ -31,13 +31,13 @@ loop-for-count
   (deffunction_construct
     (symbol)
     (loop_for_count
-      (loop_control
+      (range_spec
         (single_field_variable)
         (number)
         (function_call
           (symbol)))
       (loop_for_count
-        (loop_control
+        (range_spec
           (single_field_variable)
           (number)
           (number))

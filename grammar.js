@@ -54,6 +54,7 @@ module.exports = grammar({
       $._constant,
       $.function_call,
       $.loop_for_count,
+      $.if_then_else,
     ),
 
     _ws: _ => WHITE_SPACE,
@@ -103,16 +104,26 @@ module.exports = grammar({
     loop_for_count: $ => seq(
       "(",
       "loop-for-count",
-      choice($.integer, $.loop_control),
+      choice($.integer, $.range_spec),
+      optional("do"),
       repeat($._expression),
       ")",
     ),
 
-    loop_control: $ => seq(
+    range_spec: $ => seq(
       "(",
       $.single_field_variable,
+      optional($._expression),
       $._expression,
-      $._expression,
+      ")",
+    ),
+
+    if_then_else: $ => seq("(",
+      "if",
+      choice($.function_call, $._variable),
+      "then",
+      repeat($._expression),
+      optional(seq("else", repeat($._expression))),
       ")",
     ),
 

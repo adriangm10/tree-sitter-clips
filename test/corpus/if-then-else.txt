@@ -1,0 +1,33 @@
+======================================
+if-then-else
+======================================
+
+(deffunction test ()
+    (if (= ?a ?b) then
+        (printout t "son iguales" crlf)
+    else
+        (printout t "no son iguales" crlf)
+    )
+)
+
+---
+
+(program
+  (deffunction_construct
+    (symbol)
+    (if_then_else
+      (function_call
+        (symbol)
+        (single_field_variable)
+        (single_field_variable))
+      (function_call
+        (symbol)
+        (symbol)
+        (str_lit)
+        (symbol))
+      (function_call
+        (symbol)
+        (symbol)
+        (str_lit)
+        (symbol)))))
+

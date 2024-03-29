@@ -265,6 +265,10 @@
           "named": true
         },
         {
+          "type": "if_then_else",
+          "named": true
+        },
+        {
           "type": "instance_name",
           "named": true
         },
@@ -373,6 +377,10 @@
           "named": true
         },
         {
+          "type": "if_then_else",
+          "named": true
+        },
+        {
           "type": "instance_name",
           "named": true
         },
@@ -461,6 +469,10 @@
           "named": true
         },
         {
+          "type": "if_then_else",
+          "named": true
+        },
+        {
           "type": "instance_name",
           "named": true
         },
@@ -536,6 +548,10 @@
         },
         {
           "type": "global_variable",
+          "named": true
+        },
+        {
+          "type": "if_then_else",
           "named": true
         },
         {
@@ -632,6 +648,10 @@
         },
         {
           "type": "global_variable",
+          "named": true
+        },
+        {
+          "type": "if_then_else",
           "named": true
         },
         {
@@ -886,6 +906,61 @@
           "named": true
         },
         {
+          "type": "if_then_else",
+          "named": true
+        },
+        {
+          "type": "instance_name",
+          "named": true
+        },
+        {
+          "type": "loop_for_count",
+          "named": true
+        },
+        {
+          "type": "multifield_variable",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "single_field_variable",
+          "named": true
+        },
+        {
+          "type": "str_lit",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "if_then_else",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "global_variable",
+          "named": true
+        },
+        {
+          "type": "if_then_else",
+          "named": true
+        },
+        {
           "type": "instance_name",
           "named": true
         },
@@ -1047,53 +1122,6 @@
     }
   },
   {
-    "type": "loop_control",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "function_call",
-          "named": true
-        },
-        {
-          "type": "global_variable",
-          "named": true
-        },
-        {
-          "type": "instance_name",
-          "named": true
-        },
-        {
-          "type": "loop_for_count",
-          "named": true
-        },
-        {
-          "type": "multifield_variable",
-          "named": true
-        },
-        {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "single_field_variable",
-          "named": true
-        },
-        {
-          "type": "str_lit",
-          "named": true
-        },
-        {
-          "type": "symbol",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "loop_for_count",
     "named": true,
     "fields": {},
@@ -1110,15 +1138,15 @@
           "named": true
         },
         {
+          "type": "if_then_else",
+          "named": true
+        },
+        {
           "type": "instance_name",
           "named": true
         },
         {
           "type": "integer",
-          "named": true
-        },
-        {
-          "type": "loop_control",
           "named": true
         },
         {
@@ -1131,6 +1159,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "range_spec",
           "named": true
         },
         {
@@ -1582,6 +1614,57 @@
     }
   },
   {
+    "type": "range_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "global_variable",
+          "named": true
+        },
+        {
+          "type": "if_then_else",
+          "named": true
+        },
+        {
+          "type": "instance_name",
+          "named": true
+        },
+        {
+          "type": "loop_for_count",
+          "named": true
+        },
+        {
+          "type": "multifield_variable",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "single_field_variable",
+          "named": true
+        },
+        {
+          "type": "str_lit",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "range_specification",
     "named": true,
     "fields": {},
@@ -1614,6 +1697,10 @@
         },
         {
           "type": "global_variable",
+          "named": true
+        },
+        {
+          "type": "if_then_else",
           "named": true
         },
         {
@@ -2129,6 +2216,14 @@
     "named": false
   },
   {
+    "type": "do",
+    "named": false
+  },
+  {
+    "type": "else",
+    "named": false
+  },
+  {
     "type": "exists",
     "named": false
   },
@@ -2143,6 +2238,10 @@
   {
     "type": "global_variable",
     "named": true
+  },
+  {
+    "type": "if",
+    "named": false
   },
   {
     "type": "instance_name",
@@ -2218,6 +2317,10 @@
   },
   {
     "type": "test",
+    "named": false
+  },
+  {
+    "type": "then",
     "named": false
   },
   {
