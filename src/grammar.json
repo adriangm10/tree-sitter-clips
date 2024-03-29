@@ -2827,60 +2827,35 @@
       ]
     },
     "parameter_list": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "single_field_variable"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "PATTERN",
-                "value": "\\s+"
-              },
-              {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT1",
+              "content": {
                 "type": "SYMBOL",
                 "name": "single_field_variable"
               }
-            ]
-          }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
+            },
             {
-              "type": "SEQ",
+              "type": "CHOICE",
               "members": [
-                {
-                  "type": "PATTERN",
-                  "value": "\\s+"
-                },
                 {
                   "type": "SYMBOL",
                   "name": "multifield_variable"
+                },
+                {
+                  "type": "BLANK"
                 }
               ]
-            },
-            {
-              "type": "BLANK"
             }
           ]
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "PATTERN",
-              "value": "\\s+"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "multifield_variable"
         }
       ]
     },

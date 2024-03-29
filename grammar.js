@@ -316,12 +316,12 @@ module.exports = grammar({
       ")",
     ),
 
-    parameter_list: $ => seq(
-      $.single_field_variable,
-      repeat(seq(/\s+/, $.single_field_variable)),
-      optional(seq(/\s+/, $.multifield_variable)),
-      optional(/\s+/)
-    ),
+    parameter_list: $ => choice(
+      seq(
+        repeat1($.single_field_variable),
+        optional($.multifield_variable),
+      ),
+      $.multifield_variable),
 
     defgeneric_construct: $ => seq("(", "defgeneric",
       field("name", $.symbol),
