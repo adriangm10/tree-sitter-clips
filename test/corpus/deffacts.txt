@@ -1,0 +1,28 @@
+======================================
+deffacts
+======================================
+(deffacts arranque "Estado inicial del frigorífico"
+    (frigorífico interruptor encendido)
+    (frigorífico puerta abierta)
+    (frigorífico temperatura (get-temp))) ; get-temp -> función que se ha implementado
+
+---
+(program
+  (deffacts_construct
+    name: (variable_symbol)
+    comment: (str_lit)
+    (ordered_rhs_pattern
+      (symbol)
+      (symbol)
+      (symbol))
+    (ordered_rhs_pattern
+      (symbol)
+      (symbol)
+      (symbol))
+    (ordered_rhs_pattern
+      (symbol)
+      (symbol)
+      (function_call
+        name: (symbol))))
+  (comment))
+

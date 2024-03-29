@@ -1,0 +1,50 @@
+======================================
+defrule1
+======================================
+
+(defrule fallo-1
+    (or (and (temperatura alta)(valvula cerrada))
+    (and (temperatura baja)(valvula abierta)))
+=>
+    (printout t "El sistema tiene el fallo 1." crlf))
+---
+
+(program
+  (defrule_construct
+  name: (symbol)
+  (or_CE
+    (and_CE
+      (ordered_pattern_CE
+        (symbol)
+        (constraint
+          (connected_constraint
+            (single_constraint
+              (term
+                (symbol))))))
+      (ordered_pattern_CE
+        (symbol)
+        (constraint
+          (connected_constraint
+            (single_constraint
+              (term
+                (symbol)))))))
+    (and_CE
+      (ordered_pattern_CE
+        (symbol)
+        (constraint
+          (connected_constraint
+            (single_constraint
+              (term
+                (symbol))))))
+      (ordered_pattern_CE
+        (symbol)
+        (constraint
+          (connected_constraint
+            (single_constraint
+              (term
+                (symbol))))))))
+  (function_call
+    name: (symbol)
+    (symbol)
+    (str_lit)
+    (symbol))))

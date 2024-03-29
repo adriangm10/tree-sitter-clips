@@ -1,0 +1,27 @@
+======================================
+defmethod
+======================================
+
+(defmethod foo ((?a MULTIFIELD STRING)))
+(defmethod + ((?a NUMBER) (?b NUMBER) ($?rest NUMBER)))
+
+---
+
+(program
+  (defmethod_construct
+    (symbol)
+    (parameter_restriction
+      (single_field_variable)
+      (symbol)
+      (symbol)))
+  (defmethod_construct
+    (symbol)
+    (parameter_restriction
+      (single_field_variable)
+      (symbol))
+    (parameter_restriction
+      (single_field_variable)
+      (symbol))
+    (wildcard_parameter_restriction
+      (multifield_variable)
+      (symbol))))

@@ -1,0 +1,47 @@
+======================================
+defrule2
+======================================
+
+(defrule example
+(item ?x ?y ?x)
+(test (and (numberp ?x) (> ?x (+ 10 ?y)) (< ?x 100)))
+=>)
+---
+
+(program
+  (defrule_construct
+    (symbol)
+    (ordered_pattern_CE
+      (symbol)
+      (constraint
+        (connected_constraint
+          (single_constraint
+            (term
+              (single_field_variable)))))
+      (constraint
+        (connected_constraint
+          (single_constraint
+            (term
+              (single_field_variable)))))
+      (constraint
+        (connected_constraint
+          (single_constraint
+            (term
+              (single_field_variable))))))
+    (test_CE
+      (function_call
+        (symbol)
+        (function_call
+          (symbol)
+          (single_field_variable))
+        (function_call
+          (symbol)
+          (single_field_variable)
+          (function_call
+            (symbol)
+            (number)
+            (single_field_variable)))
+        (function_call
+          (symbol)
+          (single_field_variable)
+          (number))))))

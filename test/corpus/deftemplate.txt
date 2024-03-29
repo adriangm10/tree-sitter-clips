@@ -1,0 +1,89 @@
+======================================
+deftemplate
+======================================
+(deftemplate persona
+    (multislot nombre (type SYMBOL))
+    (slot edad (type INTEGER)(range 0 125)))
+
+(deftemplate equipo-voleibol
+    (slot nombre-equipo (type STRING))
+    (multislot jugadores (type STRING) (cardinality 6 6))
+    (multislot sustitutos (type STRING) (cardinality 0 2)))
+
+(deftemplate datos-persona
+    (slot nombre (type STRING) (default ?DERIVE))
+    (slot apellido (type STRING) (default ?NONE))
+    (slot edad (type FLOAT) (default 7.0) (range 0.0 120.0)) )
+
+---
+(program
+  (deftemplate_construct
+    name: (variable_symbol)
+    (multislot_definition
+      slot_name: (variable_symbol)
+      (type_attribute
+        (type_specification
+          (allowed_type))))
+    (single_slot_definition
+      slot_name: (variable_symbol)
+      (type_attribute
+        (type_specification
+          (allowed_type)))
+      (range_attribute
+        (range_specification
+          (number))
+        (range_specification
+          (number)))))
+  (deftemplate_construct
+    name: (variable_symbol)
+    (single_slot_definition
+      slot_name: (variable_symbol)
+      (type_attribute
+        (type_specification
+          (allowed_type))))
+    (multislot_definition
+      slot_name: (variable_symbol)
+      (type_attribute
+        (type_specification
+          (allowed_type)))
+      (cardinality_attribute
+        (cardinality_specification
+          (integer))
+        (cardinality_specification
+          (integer))))
+    (multislot_definition
+      slot_name: (variable_symbol)
+      (type_attribute
+        (type_specification
+          (allowed_type)))
+      (cardinality_attribute
+        (cardinality_specification
+          (integer))
+        (cardinality_specification
+          (integer)))))
+  (deftemplate_construct
+    name: (variable_symbol)
+    (single_slot_definition
+      slot_name: (variable_symbol)
+      (type_attribute
+        (type_specification
+          (allowed_type)))
+      (default_attribute))
+    (single_slot_definition
+      slot_name: (variable_symbol)
+      (type_attribute
+        (type_specification
+          (allowed_type)))
+      (default_attribute))
+    (single_slot_definition
+      slot_name: (variable_symbol)
+      (type_attribute
+        (type_specification
+          (allowed_type)))
+      (default_attribute
+        (number))
+      (range_attribute
+        (range_specification
+          (number))
+        (range_specification
+          (number))))))

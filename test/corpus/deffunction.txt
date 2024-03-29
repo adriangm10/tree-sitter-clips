@@ -1,0 +1,51 @@
+======================================
+deffunction
+======================================
+(deffunction InRange (?a ?b)
+    (bind ?v (integer (read)))
+    (while (or(< ?v ?a)(> ?v ?b))
+        (printout t "insert another number" crlf)
+        (bind ?v (integer (read)))
+    )
+)
+
+---
+
+(program
+  (deffunction_construct
+    name: (symbol)
+    (parameter_list
+      (single_field_variable)
+      (single_field_variable))
+    (function_call
+      name: (symbol)
+      (single_field_variable)
+      (function_call
+        name: (symbol)
+        (function_call
+          name: (symbol))))
+    (function_call
+      name: (symbol)
+      (function_call
+        name: (symbol)
+        (function_call
+          name: (symbol)
+          (single_field_variable)
+          (single_field_variable))
+        (function_call
+          name: (symbol)
+          (single_field_variable)
+          (single_field_variable)))
+      (function_call
+        name: (symbol)
+        (symbol)
+        (str_lit)
+        (symbol))
+      (function_call
+        name: (symbol)
+        (single_field_variable)
+        (function_call
+          name: (symbol)
+          (function_call
+            name: (symbol)))))))
+
