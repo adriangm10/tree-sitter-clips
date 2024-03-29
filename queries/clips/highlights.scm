@@ -65,10 +65,11 @@
 
 (function_call
   name: (_) @keyword
-  (#any-of? @keyword "while" "foreach" "bind"))
+  (#any-of? @keyword "while" "foreach" "bind" "return"))
 
 (parameter_list
-  (single_field_variable) @variable.parameter
+  (single_field_variable) @variable.parameter)
+(parameter_list
   (multifield_variable) @variable.parameter)
 
 (multislot_definition
@@ -86,6 +87,8 @@
 
 ((symbol) @constant.builtin
   (#any-of? @constant.builtin "t" "crlf"))
+((symbol) @boolean
+  (#any-of? @boolean "TRUE" "FALSE"))
 
 (ERROR) @error
 
