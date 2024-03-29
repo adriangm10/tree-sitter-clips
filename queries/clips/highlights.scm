@@ -116,6 +116,7 @@
   "then"
   "else"
   "do"
+  "assert"
 ] @keyword
 
 [
