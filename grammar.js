@@ -53,6 +53,7 @@ module.exports = grammar({
       $._variable,
       $._constant,
       $.function_call,
+      $.loop_for_count,
     ),
 
     _ws: _ => WHITE_SPACE,
@@ -97,6 +98,22 @@ module.exports = grammar({
       field("name", $.symbol),
       repeat($._expression),
       ")"
+    ),
+
+    loop_for_count: $ => seq(
+      "(",
+      "loop-for-count",
+      choice($.integer, $.loop_control),
+      repeat($._expression),
+      ")",
+    ),
+
+    loop_control: $ => seq(
+      "(",
+      $.single_field_variable,
+      $._expression,
+      $._expression,
+      ")",
     ),
 
     deffacts_construct: $ => seq("(", "deffacts",

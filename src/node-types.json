@@ -269,6 +269,10 @@
           "named": true
         },
         {
+          "type": "loop_for_count",
+          "named": true
+        },
+        {
           "type": "multifield_variable",
           "named": true
         },
@@ -373,6 +377,10 @@
           "named": true
         },
         {
+          "type": "loop_for_count",
+          "named": true
+        },
+        {
           "type": "multifield_variable",
           "named": true
         },
@@ -457,6 +465,10 @@
           "named": true
         },
         {
+          "type": "loop_for_count",
+          "named": true
+        },
+        {
           "type": "multifield_variable",
           "named": true
         },
@@ -528,6 +540,10 @@
         },
         {
           "type": "instance_name",
+          "named": true
+        },
+        {
+          "type": "loop_for_count",
           "named": true
         },
         {
@@ -624,6 +640,10 @@
         },
         {
           "type": "logical_CE",
+          "named": true
+        },
+        {
+          "type": "loop_for_count",
           "named": true
         },
         {
@@ -870,6 +890,10 @@
           "named": true
         },
         {
+          "type": "loop_for_count",
+          "named": true
+        },
+        {
           "type": "multifield_variable",
           "named": true
         },
@@ -1017,6 +1041,108 @@
         },
         {
           "type": "test_CE",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "loop_control",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "global_variable",
+          "named": true
+        },
+        {
+          "type": "instance_name",
+          "named": true
+        },
+        {
+          "type": "loop_for_count",
+          "named": true
+        },
+        {
+          "type": "multifield_variable",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "single_field_variable",
+          "named": true
+        },
+        {
+          "type": "str_lit",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "loop_for_count",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "global_variable",
+          "named": true
+        },
+        {
+          "type": "instance_name",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "loop_control",
+          "named": true
+        },
+        {
+          "type": "loop_for_count",
+          "named": true
+        },
+        {
+          "type": "multifield_variable",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "single_field_variable",
+          "named": true
+        },
+        {
+          "type": "str_lit",
+          "named": true
+        },
+        {
+          "type": "symbol",
           "named": true
         }
       ]
@@ -1492,6 +1618,10 @@
         },
         {
           "type": "instance_name",
+          "named": true
+        },
+        {
+          "type": "loop_for_count",
           "named": true
         },
         {
@@ -2028,6 +2158,10 @@
   },
   {
     "type": "logical",
+    "named": false
+  },
+  {
+    "type": "loop-for-count",
     "named": false
   },
   {

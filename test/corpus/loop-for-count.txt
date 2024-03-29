@@ -1,0 +1,51 @@
+======================================
+loop-for-count
+======================================
+
+(deffunction test1 ()
+    (loop-for-count 2
+        (printout t "Hello world" crlf)
+    )
+)
+
+(deffunction test2 ()
+    (loop-for-count (?i 0 (f2))
+        (loop-for-count (?j 1 3)
+            (printout t ?i " " ?j crlf)
+        )
+    )
+)
+
+---
+
+(program
+  (deffunction_construct
+    (symbol)
+    (loop_for_count
+      (integer)
+      (function_call
+        (symbol)
+        (symbol)
+        (str_lit)
+        (symbol))))
+  (deffunction_construct
+    (symbol)
+    (loop_for_count
+      (loop_control
+        (single_field_variable)
+        (number)
+        (function_call
+          (symbol)))
+      (loop_for_count
+        (loop_control
+          (single_field_variable)
+          (number)
+          (number))
+        (function_call
+          (symbol)
+          (symbol)
+          (single_field_variable)
+          (str_lit)
+          (single_field_variable)
+          (symbol))))))
+
