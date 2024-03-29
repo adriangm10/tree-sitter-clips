@@ -64,8 +64,16 @@
   (#any-of? @operator "-" "/" "+" "*" "~" "<" "=" "<=" ">" ">="))
 
 (function_call
+  name: (_) @keyword.repeat
+  (#any-of? @keyword.repeat "while" "foreach"))
+
+(function_call
+  name: (_) @keyword.return
+  (#eq? @keyword.return "return"))
+
+(function_call
   name: (_) @keyword
-  (#any-of? @keyword "while" "foreach" "bind" "return"))
+  (#eq? @keyword "bind"))
 
 (parameter_list
   (single_field_variable) @variable.parameter)
@@ -114,13 +122,16 @@
   "object"
   "is-a"
   "name"
+  "assert"
+] @keyword
+
+[
   "loop-for-count"
   "if"
   "then"
   "else"
   "do"
-  "assert"
-] @keyword
+] @keyword.repeat
 
 [
  "and"
