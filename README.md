@@ -1,7 +1,7 @@
 # tree-sitter-clips
 
 ### TODO:
-- [ ] assert
+- [x] assert
 - [ ] defclass-construct
 - [ ] defmessage-handler-construct
 - [ ] definstances-construct
