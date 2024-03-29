@@ -112,6 +112,10 @@
   "is-a"
   "name"
   "loop-for-count"
+  "if"
+  "then"
+  "else"
+  "do"
 ] @keyword
 
 [
