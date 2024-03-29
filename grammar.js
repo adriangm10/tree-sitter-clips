@@ -55,6 +55,7 @@ module.exports = grammar({
       $.function_call,
       $.loop_for_count,
       $.if_then_else,
+      $.assert
     ),
 
     _ws: _ => WHITE_SPACE,
@@ -124,6 +125,12 @@ module.exports = grammar({
       "then",
       repeat($._expression),
       optional(seq("else", repeat($._expression))),
+      ")",
+    ),
+
+    assert: $ => seq("(",
+      "assert",
+      repeat1($._rhs_pattern),
       ")",
     ),
 

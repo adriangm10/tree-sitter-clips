@@ -102,6 +102,25 @@
     }
   },
   {
+    "type": "assert",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ordered_rhs_pattern",
+          "named": true
+        },
+        {
+          "type": "template_rhs_pattern",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "assigned_pattern_CE",
     "named": true,
     "fields": {},
@@ -257,6 +276,10 @@
       "required": false,
       "types": [
         {
+          "type": "assert",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -369,6 +392,10 @@
       "required": false,
       "types": [
         {
+          "type": "assert",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -461,6 +488,10 @@
       "required": false,
       "types": [
         {
+          "type": "assert",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -543,6 +574,10 @@
       "required": false,
       "types": [
         {
+          "type": "assert",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -624,6 +659,10 @@
       "types": [
         {
           "type": "and_CE",
+          "named": true
+        },
+        {
+          "type": "assert",
           "named": true
         },
         {
@@ -898,6 +937,10 @@
       "required": false,
       "types": [
         {
+          "type": "assert",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -948,6 +991,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "assert",
+          "named": true
+        },
         {
           "type": "function_call",
           "named": true
@@ -1129,6 +1176,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "assert",
+          "named": true
+        },
         {
           "type": "function_call",
           "named": true
@@ -1622,6 +1673,10 @@
       "required": true,
       "types": [
         {
+          "type": "assert",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -1687,6 +1742,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "assert",
+          "named": true
+        },
         {
           "type": "boolean_symbol",
           "named": true
@@ -2157,6 +2216,10 @@
   },
   {
     "type": "and",
+    "named": false
+  },
+  {
+    "type": "assert",
     "named": false
   },
   {

@@ -85,6 +85,10 @@
         {
           "type": "SYMBOL",
           "name": "if_then_else"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assert"
         }
       ]
     },
@@ -1009,6 +1013,30 @@
               "type": "BLANK"
             }
           ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "assert": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "STRING",
+          "value": "assert"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_rhs_pattern"
+          }
         },
         {
           "type": "STRING",
