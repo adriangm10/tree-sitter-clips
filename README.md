@@ -1,7 +1,7 @@
 # tree-sitter-clips
 
 ### TODO:
-- [ ] for-loop-count
+- [x] for-loop-count
 - [ ] if then else
 - [ ] assert
 - [ ] defclass-construct
