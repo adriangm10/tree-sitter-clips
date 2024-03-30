@@ -18,14 +18,14 @@ deftemplate
 ---
 (program
   (deftemplate_construct
-    name: (variable_symbol)
+    name: (symbol)
     (multislot_definition
-      slot_name: (variable_symbol)
+      slot_name: (symbol)
       (type_attribute
         (type_specification
           (allowed_type))))
     (single_slot_definition
-      slot_name: (variable_symbol)
+      slot_name: (symbol)
       (type_attribute
         (type_specification
           (allowed_type)))
@@ -35,14 +35,14 @@ deftemplate
         (range_specification
           (number)))))
   (deftemplate_construct
-    name: (variable_symbol)
+    name: (symbol)
     (single_slot_definition
-      slot_name: (variable_symbol)
+      slot_name: (symbol)
       (type_attribute
         (type_specification
           (allowed_type))))
     (multislot_definition
-      slot_name: (variable_symbol)
+      slot_name: (symbol)
       (type_attribute
         (type_specification
           (allowed_type)))
@@ -52,7 +52,7 @@ deftemplate
         (cardinality_specification
           (integer))))
     (multislot_definition
-      slot_name: (variable_symbol)
+      slot_name: (symbol)
       (type_attribute
         (type_specification
           (allowed_type)))
@@ -62,21 +62,21 @@ deftemplate
         (cardinality_specification
           (integer)))))
   (deftemplate_construct
-    name: (variable_symbol)
+    name: (symbol)
     (single_slot_definition
-      slot_name: (variable_symbol)
+      slot_name: (symbol)
       (type_attribute
         (type_specification
           (allowed_type)))
       (default_attribute))
     (single_slot_definition
-      slot_name: (variable_symbol)
+      slot_name: (symbol)
       (type_attribute
         (type_specification
           (allowed_type)))
       (default_attribute))
     (single_slot_definition
-      slot_name: (variable_symbol)
+      slot_name: (symbol)
       (type_attribute
         (type_specification
           (allowed_type)))

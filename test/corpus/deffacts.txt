@@ -9,7 +9,7 @@ deffacts
 ---
 (program
   (deffacts_construct
-    name: (variable_symbol)
+    name: (symbol)
     comment: (str_lit)
     (ordered_rhs_pattern
       (symbol)

@@ -156,7 +156,7 @@
         "required": false,
         "types": [
           {
-            "type": "variable_symbol",
+            "type": "symbol",
             "named": true
           }
         ]
@@ -212,7 +212,7 @@
       "required": false,
       "types": [
         {
-          "type": "variable_symbol",
+          "type": "symbol",
           "named": true
         }
       ]
@@ -341,7 +341,7 @@
         "required": true,
         "types": [
           {
-            "type": "variable_symbol",
+            "type": "symbol",
             "named": true
           }
         ]
@@ -477,7 +477,7 @@
         "required": false,
         "types": [
           {
-            "type": "variable_symbol",
+            "type": "symbol",
             "named": true
           }
         ]
@@ -771,7 +771,7 @@
         "required": true,
         "types": [
           {
-            "type": "variable_symbol",
+            "type": "symbol",
             "named": true
           }
         ]
@@ -1047,7 +1047,7 @@
       "required": false,
       "types": [
         {
-          "type": "variable_symbol",
+          "type": "symbol",
           "named": true
         }
       ]
@@ -1096,7 +1096,7 @@
         "required": true,
         "types": [
           {
-            "type": "variable_symbol",
+            "type": "symbol",
             "named": true
           }
         ]
@@ -1234,10 +1234,21 @@
   {
     "type": "multifield_rhs_slot",
     "named": true,
-    "fields": {},
+    "fields": {
+      "slot_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "function_call",
@@ -1270,10 +1281,6 @@
         {
           "type": "symbol",
           "named": true
-        },
-        {
-          "type": "variable_symbol",
-          "named": true
         }
       ]
     }
@@ -1287,7 +1294,7 @@
         "required": true,
         "types": [
           {
-            "type": "variable_symbol",
+            "type": "symbol",
             "named": true
           }
         ]
@@ -1811,9 +1818,20 @@
   {
     "type": "single_field_rhs_slot",
     "named": true,
-    "fields": {},
+    "fields": {
+      "slot_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -1847,10 +1865,6 @@
         {
           "type": "symbol",
           "named": true
-        },
-        {
-          "type": "variable_symbol",
-          "named": true
         }
       ]
     }
@@ -1864,7 +1878,7 @@
         "required": true,
         "types": [
           {
-            "type": "variable_symbol",
+            "type": "symbol",
             "named": true
           }
         ]
@@ -1930,17 +1944,24 @@
   {
     "type": "template_pattern_CE",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "lhs_slot",
-          "named": true
-        },
-        {
-          "type": "variable_symbol",
           "named": true
         }
       ]
@@ -1949,10 +1970,21 @@
   {
     "type": "template_rhs_pattern",
     "named": true,
-    "fields": {},
+    "fields": {
+      "temp_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "multifield_rhs_slot",
@@ -1960,10 +1992,6 @@
         },
         {
           "type": "single_field_rhs_slot",
-          "named": true
-        },
-        {
-          "type": "variable_symbol",
           "named": true
         }
       ]
@@ -2389,10 +2417,6 @@
   {
     "type": "type",
     "named": false
-  },
-  {
-    "type": "variable_symbol",
-    "named": true
   },
   {
     "type": "|",

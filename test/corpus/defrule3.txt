@@ -1,0 +1,38 @@
+======================================
+defrule3
+======================================
+
+(defrule start
+    (person (name ?n)(city ?))
+=>
+    (assert (time ?n 0))
+    (assert (activities ?n 0)))
+
+---
+
+(program
+  (defrule_construct
+    (symbol)
+    (template_pattern_CE
+      (symbol)
+      (lhs_slot
+        (symbol)
+        (constraint
+          (connected_constraint
+            (single_constraint
+              (term
+                (single_field_variable))))))
+      (lhs_slot
+        (symbol)
+        (constraint)))
+    (assert
+      (ordered_rhs_pattern
+        (symbol)
+        (single_field_variable)
+        (number)))
+    (assert
+      (ordered_rhs_pattern
+        (symbol)
+        (single_field_variable)
+        (number)))))
+

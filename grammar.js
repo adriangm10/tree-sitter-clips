@@ -17,18 +17,20 @@ const WHITE_SPACE_CHAR = /[\t\n\r\f ]/;
 
 const WHITE_SPACE = token(repeat1(WHITE_SPACE_CHAR));
 
-const SYMBOL = token(seq(/[^$?&()|~;\n ]/, repeat(/[^&()|~;<\n ]/))); //TODO: hacerlo bien xdd
+const SYMBOL = token(seq(/[^$?&()|~;\s]/, repeat(/[^&()|~;<\s]/)));
 
 const STRING = token(seq('"', repeat(/[^"]/), '"'));
 
-const VARIABLE_SYMBOL = token(seq(/[a-zA-Z]/, repeat(/[^&()|~;<\n ]/)));
+const VARIABLE_SYMBOL = token(seq(/[a-zA-Z]/, repeat(/[^&()|~;<\s]/)));
 
 module.exports = grammar({
   name: 'clips',
 
   conflicts: ($, original) => [...original,
     [$.single_field_rhs_slot, $.multifield_rhs_slot],
-    [$.lhs_slot],
+    [$.ordered_pattern_CE, $.template_pattern_CE],
+    [$.function_call, $.multifield_rhs_slot],
+    [$._expression, $._rhs_field],
   ],
 
   rules: {
@@ -135,28 +137,28 @@ module.exports = grammar({
     ),
 
     deffacts_construct: $ => seq("(", "deffacts",
-      field("name", $.variable_symbol),
+      field("name", $.symbol),
       optional(field("comment", $.str_lit)),
       repeat($._rhs_pattern),
       ")"
     ),
     _rhs_pattern: $ => choice($.ordered_rhs_pattern, $.template_rhs_pattern),
     ordered_rhs_pattern: $ => seq("(", $.symbol, repeat1($._rhs_field), ")"),
-    template_rhs_pattern: $ => seq("(", $.variable_symbol, repeat($._rhs_slot), ")"),
+    template_rhs_pattern: $ => seq("(", field("temp_name", $.symbol), repeat($._rhs_slot), ")"),
     _rhs_slot: $ => choice($.single_field_rhs_slot, $.multifield_rhs_slot),
-    single_field_rhs_slot: $ => seq("(", $.variable_symbol, $._rhs_field, ")"),
-    multifield_rhs_slot: $ => seq("(", $.variable_symbol, repeat($._rhs_field), ")"),
+    single_field_rhs_slot: $ => seq("(", field("slot_name", $.symbol), $._rhs_field, ")"),
+    multifield_rhs_slot: $ => seq("(", field("slot_name", $.symbol), repeat($._rhs_field), ")"),
     _rhs_field: $ => choice($._variable, $._constant, $.function_call),
 
     deftemplate_construct: $ => seq("(", "deftemplate",
-      field("name", $.variable_symbol),
+      field("name", $.symbol),
       optional(field("comment", $.str_lit)),
       repeat($._slot_definition),
       ")"
     ),
     _slot_definition: $ => choice($.single_slot_definition, $.multislot_definition),
-    single_slot_definition: $ => seq("(", "slot", field("slot_name", $.variable_symbol), repeat($._template_attribute), ")"),
-    multislot_definition: $ => seq("(", "multislot", field("slot_name", $.variable_symbol), repeat($._template_attribute), ")"),
+    single_slot_definition: $ => seq("(", "slot", field("slot_name", $.symbol), repeat($._template_attribute), ")"),
+    multislot_definition: $ => seq("(", "multislot", field("slot_name", $.symbol), repeat($._template_attribute), ")"),
     _template_attribute: $ => choice($.default_attribute, $._constraint_attribute),
 
     default_attribute: $ => choice(
@@ -209,8 +211,8 @@ module.exports = grammar({
     float_list: $ => choice(repeat1($.float), "?VARIABLE"),
     number_list: $ => choice(repeat1($.number), "?VARIABLE"),
     instance_name_list: $ => choice(repeat1($.instance_name), "?VARIABLE"),
-    class_name_list: $ => choice(repeat1($.variable_symbol), "?VARIABLE"),
-    instance_list: $ => choice(repeat1($.variable_symbol), "?VARIABLE"),
+    class_name_list: $ => choice(repeat1($.symbol), "?VARIABLE"),
+    instance_list: $ => choice(repeat1($.symbol), "?VARIABLE"),
     value_list: $ => choice(repeat1($._constant), "?VARIABLE"),
 
     range_attribute: $ => seq("(", "range", $.range_specification, $.range_specification, ")"),
@@ -260,19 +262,16 @@ module.exports = grammar({
     exists_CE: $ => seq("(", "exists", repeat1($._conditional_element), ")"),
     forall_CE: $ => seq("(", "forall", $._conditional_element, repeat1($._conditional_element), ")"),
     ordered_pattern_CE: $ => seq("(", $.symbol, repeat($.constraint), ")"),
-    template_pattern_CE: $ => seq("(", $.variable_symbol, repeat($.lhs_slot), ")"),
+    template_pattern_CE: $ => seq("(", field("name", $.symbol), repeat($.lhs_slot), ")"),
     object_pattern_CE: $ => seq("(", "object", repeat($.attribute_constraint), ")"),
 
     attribute_constraint: $ => choice(
       seq("(", "is-a", $.constraint, ")"),
       seq("(", "name", $.constraint, ")"),
-      seq("(", field("slot_name", $.variable_symbol), repeat($.constraint), ")"),
+      seq("(", field("slot_name", $.symbol), repeat($.constraint), ")"),
     ),
 
-    lhs_slot: $ => choice(
-      seq("(", field("slot_name", $.variable_symbol), $.constraint, ")"),
-      seq("(", field("slot_name", $.variable_symbol), repeat($.constraint), ")"),
-    ),
+    lhs_slot: $ => seq("(", field("slot_name", $.symbol), repeat($.constraint), ")"),
 
     constraint: $ => choice(
       "?",
@@ -300,7 +299,7 @@ module.exports = grammar({
     ),
 
     defglobal_construct: $ => seq("(", "defglobal",
-      field("module_name", optional($.variable_symbol)),
+      field("module_name", optional($.symbol)),
       repeat($._global_assignment),
       ")"
     ),
