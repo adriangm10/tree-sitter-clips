@@ -98,6 +98,24 @@
 ((symbol) @boolean
   (#any-of? @boolean "TRUE" "FALSE"))
 
+(template_pattern_CE
+  name: (_) @type)
+
+(lhs_slot
+  slot_name: (_) @variable.member)
+
+(single_field_rhs_slot
+  slot_name: (_) @variable.member)
+
+(multifield_rhs_slot
+  slot_name: (_) @variable.member)
+
+(template_rhs_pattern
+  temp_name: (_) @type)
+
+(assigned_pattern_CE
+  (single_field_variable) @variable.parameter)
+
 (ERROR) @error
 
 [
@@ -123,6 +141,9 @@
   "is-a"
   "name"
   "assert"
+  "declare"
+  "salience"
+  "auto-focus"
 ] @keyword
 
 [
@@ -137,6 +158,8 @@
  "and"
  "or"
  "not"
+ "?"
+ "$?"
 ] @keyword.operator
 
 [

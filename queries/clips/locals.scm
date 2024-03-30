@@ -9,6 +9,9 @@
 (term
   (multifield_variable) @local.definition)
 
+(assigned_pattern_CE
+  (single_field_variable) @local.definition)
+
 (single_field_variable) @local.reference
 (multifield_variable) @local.reference
 
