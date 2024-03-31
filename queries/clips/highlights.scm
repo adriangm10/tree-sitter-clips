@@ -163,6 +163,11 @@
 ] @keyword.operator
 
 [
+ "("
+ ")"
+] @punctuation.brackets
+
+[
  "=>"
  "~"
  "&"
