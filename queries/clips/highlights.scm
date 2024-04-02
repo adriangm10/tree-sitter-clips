@@ -144,6 +144,15 @@
   "declare"
   "salience"
   "auto-focus"
+  "allowed-symbols"
+  "allowed-strings"
+  "allowed-lexemes"
+  "allowed-integers"
+  "allowed-floats"
+  "allowed-numbers"
+  "allowed-instance-names"
+  "allowed-classes"
+  "allowed-values"
 ] @keyword
 
 [
