@@ -308,19 +308,21 @@ module.exports = grammar({
     deffunction_construct: $ => seq("(", "deffunction",
       field("name", $.symbol),
       field("comment", optional($.str_lit)),
-      "(",
-      optional($.parameter_list),
-      ")",
+      $.parameter_list,
       repeat($._expression),
       ")",
     ),
 
-    parameter_list: $ => choice(
-      seq(
-        repeat1($.single_field_variable),
-        optional($.multifield_variable),
-      ),
-      $.multifield_variable),
+    parameter_list: $ => seq(
+      "(",
+      optional(choice(
+        seq(
+          repeat1($.single_field_variable),
+          optional($.multifield_variable),
+        ),
+        $.multifield_variable)),
+      ")",
+    ),
 
     defgeneric_construct: $ => seq("(", "defgeneric",
       field("name", $.symbol),
