@@ -15,6 +15,7 @@ if-then-else
 (program
   (deffunction_construct
     (symbol)
+    (parameter_list)
     (if_then_else
       (function_call
         (symbol)
