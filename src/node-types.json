@@ -280,6 +280,14 @@
           "named": true
         },
         {
+          "type": "do_for_all_facts",
+          "named": true
+        },
+        {
+          "type": "do_for_fact",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -396,6 +404,14 @@
           "named": true
         },
         {
+          "type": "do_for_all_facts",
+          "named": true
+        },
+        {
+          "type": "do_for_fact",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -492,6 +508,14 @@
           "named": true
         },
         {
+          "type": "do_for_all_facts",
+          "named": true
+        },
+        {
+          "type": "do_for_fact",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -575,6 +599,14 @@
       "types": [
         {
           "type": "assert",
+          "named": true
+        },
+        {
+          "type": "do_for_all_facts",
+          "named": true
+        },
+        {
+          "type": "do_for_fact",
           "named": true
         },
         {
@@ -671,6 +703,14 @@
         },
         {
           "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "do_for_all_facts",
+          "named": true
+        },
+        {
+          "type": "do_for_fact",
           "named": true
         },
         {
@@ -793,6 +833,148 @@
     }
   },
   {
+    "type": "do_for_all_facts",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assert",
+          "named": true
+        },
+        {
+          "type": "boolean_symbol",
+          "named": true
+        },
+        {
+          "type": "do_for_all_facts",
+          "named": true
+        },
+        {
+          "type": "do_for_fact",
+          "named": true
+        },
+        {
+          "type": "fact_set_template",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "global_variable",
+          "named": true
+        },
+        {
+          "type": "if_then_else",
+          "named": true
+        },
+        {
+          "type": "instance_name",
+          "named": true
+        },
+        {
+          "type": "loop_for_count",
+          "named": true
+        },
+        {
+          "type": "multifield_variable",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "single_field_variable",
+          "named": true
+        },
+        {
+          "type": "str_lit",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "do_for_fact",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assert",
+          "named": true
+        },
+        {
+          "type": "boolean_symbol",
+          "named": true
+        },
+        {
+          "type": "do_for_all_facts",
+          "named": true
+        },
+        {
+          "type": "do_for_fact",
+          "named": true
+        },
+        {
+          "type": "fact_set_template",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "global_variable",
+          "named": true
+        },
+        {
+          "type": "if_then_else",
+          "named": true
+        },
+        {
+          "type": "instance_name",
+          "named": true
+        },
+        {
+          "type": "loop_for_count",
+          "named": true
+        },
+        {
+          "type": "multifield_variable",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "single_field_variable",
+          "named": true
+        },
+        {
+          "type": "str_lit",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "exists_CE",
     "named": true,
     "fields": {},
@@ -842,6 +1024,47 @@
         },
         {
           "type": "test_CE",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "fact_set_member_template",
+    "named": true,
+    "fields": {
+      "template_name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "var": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "single_field_variable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "fact_set_template",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "fact_set_member_template",
           "named": true
         }
       ]
@@ -941,6 +1164,14 @@
           "named": true
         },
         {
+          "type": "do_for_all_facts",
+          "named": true
+        },
+        {
+          "type": "do_for_fact",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -993,6 +1224,14 @@
       "types": [
         {
           "type": "assert",
+          "named": true
+        },
+        {
+          "type": "do_for_all_facts",
+          "named": true
+        },
+        {
+          "type": "do_for_fact",
           "named": true
         },
         {
@@ -1178,6 +1417,14 @@
       "types": [
         {
           "type": "assert",
+          "named": true
+        },
+        {
+          "type": "do_for_all_facts",
+          "named": true
+        },
+        {
+          "type": "do_for_fact",
           "named": true
         },
         {
@@ -1684,6 +1931,14 @@
           "named": true
         },
         {
+          "type": "do_for_all_facts",
+          "named": true
+        },
+        {
+          "type": "do_for_fact",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -1755,6 +2010,14 @@
         },
         {
           "type": "boolean_symbol",
+          "named": true
+        },
+        {
+          "type": "do_for_all_facts",
+          "named": true
+        },
+        {
+          "type": "do_for_fact",
           "named": true
         },
         {
@@ -2308,6 +2571,14 @@
   },
   {
     "type": "do",
+    "named": false
+  },
+  {
+    "type": "do-for-all-facts",
+    "named": false
+  },
+  {
+    "type": "do-for-fact",
     "named": false
   },
   {

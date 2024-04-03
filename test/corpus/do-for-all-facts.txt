@@ -1,0 +1,69 @@
+======================================
+do-for-all-facts
+======================================
+
+(deffunction test ()
+ (do-for-all-facts ((?p1 girl boy woman man)
+                    (?p2 girl boy woman man)
+                    (?p3 girl boy woman man))
+  (and (= ?p1:age ?p2:age ?p3:age)
+   (> (str-compare ?p1:name ?p2:name) 0)
+   (> (str-compare ?p2:name ?p3:name) 0))
+  (printout t ?p1:name " " ?p2:name " " ?p3:name crlf)))
+
+---
+
+(program
+  (deffunction_construct
+    (symbol)
+    (parameter_list)
+    (do_for_all_facts
+      (fact_set_template
+        (fact_set_member_template
+          (single_field_variable)
+          (symbol)
+          (symbol)
+          (symbol)
+          (symbol))
+        (fact_set_member_template
+          (single_field_variable)
+          (symbol)
+          (symbol)
+          (symbol)
+          (symbol))
+        (fact_set_member_template
+          (single_field_variable)
+          (symbol)
+          (symbol)
+          (symbol)
+          (symbol)))
+      (function_call
+        (symbol)
+        (function_call
+          (symbol)
+          (single_field_variable)
+          (single_field_variable)
+          (single_field_variable))
+        (function_call
+          (symbol)
+          (function_call
+            (symbol)
+            (single_field_variable)
+            (single_field_variable))
+          (number))
+        (function_call
+          (symbol)
+          (function_call
+            (symbol)
+            (single_field_variable)
+            (single_field_variable))
+          (number)))
+      (function_call
+        (symbol)
+        (symbol)
+        (single_field_variable)
+        (str_lit)
+        (single_field_variable)
+        (str_lit)
+        (single_field_variable)
+        (symbol)))))

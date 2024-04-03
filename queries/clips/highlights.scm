@@ -57,7 +57,7 @@
 
 (function_call
   name: (_) @keyword.operator
-  (#any-of? @keyword.operator "and" "or" "not"))
+  (#any-of? @keyword.operator "and" "or" "not" "eq" "neq"))
 
 (function_call
   name: (_) @operator
@@ -79,6 +79,9 @@
   (single_field_variable) @variable.parameter)
 (parameter_list
   (multifield_variable) @variable.parameter)
+
+(fact_set_member_template
+  template_name: (_) @type)
 
 (multislot_definition
   slot_name: (_) @variable.member)
@@ -161,6 +164,8 @@
   "then"
   "else"
   "do"
+  "do-for-fact"
+  "do-for-all-facts"
 ] @keyword.repeat
 
 [

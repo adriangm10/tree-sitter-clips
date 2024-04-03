@@ -33,6 +33,11 @@ module.exports = grammar({
     [$._expression, $._rhs_field],
   ],
 
+  extras: $ => [
+    $._ws,
+    $.comment
+  ],
+
   rules: {
     program: $ => repeat(choice($._construct, $._gap)),
 
@@ -57,7 +62,9 @@ module.exports = grammar({
       $.function_call,
       $.loop_for_count,
       $.if_then_else,
-      $.assert
+      $.assert,
+      $.do_for_fact,
+      $.do_for_all_facts,
     ),
 
     _ws: _ => WHITE_SPACE,
@@ -94,7 +101,7 @@ module.exports = grammar({
     _variable: $ => choice(
       $.single_field_variable,
       $.multifield_variable,
-      $.global_variable
+      $.global_variable,
     ),
 
     function_call: $ => seq(
@@ -133,6 +140,33 @@ module.exports = grammar({
     assert: $ => seq("(",
       "assert",
       repeat1($._rhs_pattern),
+      ")",
+    ),
+
+    do_for_fact: $ => seq("(",
+      "do-for-fact",
+      $.fact_set_template,
+      choice($.boolean_symbol, $.function_call, $._variable),
+      repeat($._expression),
+      ")",
+    ),
+
+    do_for_all_facts: $ => seq("(",
+      "do-for-all-facts",
+      $.fact_set_template,
+      choice($.boolean_symbol, $.function_call, $._variable),
+      repeat($._expression),
+      ")",
+    ),
+
+    fact_set_template: $ => seq("(",
+      repeat1($.fact_set_member_template),
+      ")",
+    ),
+
+    fact_set_member_template: $ => seq("(",
+      field("var", $.single_field_variable),
+      field("template_name", repeat1($.symbol)),
       ")",
     ),
 
