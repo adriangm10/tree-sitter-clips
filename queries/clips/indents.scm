@@ -4,6 +4,10 @@
   (#set! indent.open_delimiter "(")
   (#set! indent.close_delimiter ")"))
 
+((function_call) @indent.align
+  (#set! indent.open_delimiter "(")
+  (#set! indent.close_delimiter ")"))
+
 [
  (defrule_construct)
  (deffunction_construct)
