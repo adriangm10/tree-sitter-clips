@@ -27,9 +27,8 @@ module.exports = grammar({
   name: 'clips',
 
   conflicts: ($, original) => [...original,
-    [$.single_field_rhs_slot, $.multifield_rhs_slot],
     [$.ordered_pattern_CE, $.template_pattern_CE],
-    [$.function_call, $.multifield_rhs_slot],
+    [$.rhs_slot, $.function_call],
     [$._expression, $._rhs_field],
   ],
 
@@ -178,10 +177,8 @@ module.exports = grammar({
     ),
     _rhs_pattern: $ => choice($.ordered_rhs_pattern, $.template_rhs_pattern),
     ordered_rhs_pattern: $ => seq("(", $.symbol, repeat1($._rhs_field), ")"),
-    template_rhs_pattern: $ => seq("(", field("temp_name", $.symbol), repeat($._rhs_slot), ")"),
-    _rhs_slot: $ => choice($.single_field_rhs_slot, $.multifield_rhs_slot),
-    single_field_rhs_slot: $ => seq("(", field("slot_name", $.symbol), $._rhs_field, ")"),
-    multifield_rhs_slot: $ => seq("(", field("slot_name", $.symbol), repeat($._rhs_field), ")"),
+    template_rhs_pattern: $ => seq("(", field("temp_name", $.symbol), repeat($.rhs_slot), ")"),
+    rhs_slot: $ => seq("(", field("slot_name", $.symbol), repeat($._rhs_field), ")"),
     _rhs_field: $ => choice($._variable, $._constant, $.function_call),
 
     deftemplate_construct: $ => seq("(", "deftemplate",

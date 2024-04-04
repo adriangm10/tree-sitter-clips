@@ -1298,7 +1298,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_rhs_slot"
+            "name": "rhs_slot"
           }
         },
         {
@@ -1307,45 +1307,7 @@
         }
       ]
     },
-    "_rhs_slot": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "single_field_rhs_slot"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "multifield_rhs_slot"
-        }
-      ]
-    },
-    "single_field_rhs_slot": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "FIELD",
-          "name": "slot_name",
-          "content": {
-            "type": "SYMBOL",
-            "name": "symbol"
-          }
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_rhs_field"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "multifield_rhs_slot": {
+    "rhs_slot": {
       "type": "SEQ",
       "members": [
         {
@@ -3272,16 +3234,8 @@
   ],
   "conflicts": [
     [
-      "single_field_rhs_slot",
-      "multifield_rhs_slot"
-    ],
-    [
       "ordered_pattern_CE",
       "template_pattern_CE"
-    ],
-    [
-      "function_call",
-      "multifield_rhs_slot"
     ],
     [
       "_expression",
