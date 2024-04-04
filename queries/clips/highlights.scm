@@ -14,6 +14,15 @@
 (comment) @comment
 (boolean_symbol) @boolean
 
+((symbol) @constant.builtin
+  (#any-of? @constant.builtin "t" "crlf"))
+
+((symbol) @boolean
+  (#any-of? @boolean "TRUE" "FALSE"))
+
+((symbol) @constant
+  (#match? @constant "^[A-Z0-9_]*$"))
+
 (deffunction_construct
   name: (_) @function)
 (deffunction_construct
@@ -96,21 +105,13 @@
 
 (allowed_type) @type.builtin
 
-((symbol) @constant.builtin
-  (#any-of? @constant.builtin "t" "crlf"))
-((symbol) @boolean
-  (#any-of? @boolean "TRUE" "FALSE"))
-
 (template_pattern_CE
   name: (_) @type)
 
 (lhs_slot
   slot_name: (_) @variable.member)
 
-(single_field_rhs_slot
-  slot_name: (_) @variable.member)
-
-(multifield_rhs_slot
+(rhs_slot
   slot_name: (_) @variable.member)
 
 (template_rhs_pattern
