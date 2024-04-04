@@ -1444,10 +1444,6 @@
           "named": true
         },
         {
-          "type": "integer",
-          "named": true
-        },
-        {
           "type": "loop_for_count",
           "named": true
         },

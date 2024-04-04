@@ -113,7 +113,7 @@ module.exports = grammar({
     loop_for_count: $ => seq(
       "(",
       "loop-for-count",
-      choice($.integer, $.range_spec),
+      choice($._expression, $.range_spec),
       optional("do"),
       repeat($._expression),
       ")",
@@ -175,6 +175,8 @@ module.exports = grammar({
       repeat($._rhs_pattern),
       ")"
     ),
+    // NOTE: hola
+    // hola
     _rhs_pattern: $ => choice($.ordered_rhs_pattern, $.template_rhs_pattern),
     ordered_rhs_pattern: $ => seq("(", $.symbol, repeat1($._rhs_field), ")"),
     template_rhs_pattern: $ => seq("(", field("temp_name", $.symbol), repeat($.rhs_slot), ")"),

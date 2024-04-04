@@ -23,7 +23,7 @@ loop-for-count
     (symbol)
     (parameter_list)
     (loop_for_count
-      (integer)
+      (number)
       (function_call
         (symbol)
         (symbol)

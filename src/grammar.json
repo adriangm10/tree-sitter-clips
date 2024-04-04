@@ -897,7 +897,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "integer"
+              "name": "_expression"
             },
             {
               "type": "SYMBOL",
@@ -3236,6 +3236,10 @@
     [
       "ordered_pattern_CE",
       "template_pattern_CE"
+    ],
+    [
+      "rhs_slot",
+      "function_call"
     ],
     [
       "_expression",
