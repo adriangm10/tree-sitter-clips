@@ -10,6 +10,7 @@
 (float) @number
 (single_field_variable) @variable
 (multifield_variable) @variable
+(global_variable) @variable
 (str_lit) @string
 (comment) @comment
 (boolean_symbol) @boolean
@@ -17,11 +18,11 @@
 ((symbol) @constant.builtin
   (#any-of? @constant.builtin "t" "crlf"))
 
-((symbol) @boolean
-  (#any-of? @boolean "TRUE" "FALSE"))
-
 ((symbol) @constant
   (#match? @constant "^[A-Z0-9_]*$"))
+
+((symbol) @boolean
+  (#any-of? @boolean "TRUE" "FALSE"))
 
 (deffunction_construct
   name: (_) @function)
@@ -70,7 +71,7 @@
 
 (function_call
   name: (_) @operator
-  (#any-of? @operator "-" "/" "+" "*" "~" "<" "=" "<=" ">" ">="))
+  (#any-of? @operator "-" "/" "+" "*" "~" "<" "=" "<=" ">" ">=" "!="))
 
 (function_call
   name: (_) @keyword.repeat
@@ -119,6 +120,16 @@
 
 (assigned_pattern_CE
   (single_field_variable) @variable.parameter)
+
+
+((single_field_variable) @constant
+  (#lua-match? @constant "^[?A-Z0-9_]*$"))
+
+((multifield_variable) @constant
+  (#lua-match? @constant "^[$?A-Z0-9_]*$"))
+
+((global_variable) @constant
+  (#lua-match? @constant "^[$?A-Z0-9_*]*$"))
 
 (ERROR) @error
 
