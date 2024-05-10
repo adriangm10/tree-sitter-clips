@@ -16,13 +16,16 @@
 (boolean_symbol) @boolean
 
 ((symbol) @constant.builtin
-  (#any-of? @constant.builtin "t" "crlf"))
+  (#any-of? @constant.builtin "t" "crlf" "nil"))
 
 ((symbol) @constant
   (#match? @constant "^[A-Z0-9_]*$"))
 
 ((symbol) @boolean
   (#any-of? @boolean "TRUE" "FALSE"))
+
+((symbol) @keyword.repeat
+  (#eq? @keyword.repeat "do"))
 
 (deffunction_construct
   name: (_) @function)
@@ -75,7 +78,7 @@
 
 (function_call
   name: (_) @keyword.repeat
-  (#any-of? @keyword.repeat "while" "foreach"))
+  (#any-of? @keyword.repeat "while" "foreach" "switch" "case"))
 
 (function_call
   name: (_) @keyword.return
